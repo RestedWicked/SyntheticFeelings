@@ -61,10 +61,6 @@
 			isa = PBXBuildFile;
 			fileRef = 366650DEF0700A26CE75D99E;
 		};
-		728098F7C975E114DBD74608 = {
-			isa = PBXBuildFile;
-			fileRef = 50CBFDF851B125887DDEE495;
-		};
 		CF29FDA9812E96871ABEAF27 = {
 			isa = PBXBuildFile;
 			fileRef = A65AAFC78F3D214DBDDCB3F3;
@@ -205,13 +201,6 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_graphics.mm";
 			path = "../../JuceLibraryCode/include_juce_graphics.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
-		50CBFDF851B125887DDEE495 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = MainComponent.cpp;
-			path = ../../Source/MainComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		5F40BC68AD3299C8D53481DD = {
@@ -393,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				366650DEF0700A26CE75D99E,
-				50CBFDF851B125887DDEE495,
 				E0DFB57F1B55EFA97503464E,
 			);
 			name = Source;
@@ -751,7 +739,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE28E36E032F9DAE5C5D8DA,
-				728098F7C975E114DBD74608,
 				CF29FDA9812E96871ABEAF27,
 				72CF36DB47870E781029C47B,
 				6F14E4300B583C810A076750,

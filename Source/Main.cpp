@@ -10,11 +10,11 @@
 #include "MainComponent.h"
 
 //==============================================================================
-class AnotherAttemptApplication  : public juce::JUCEApplication
+class SyntheticFeelingsApplication  : public juce::JUCEApplication
 {
 public:
     //==============================================================================
-    AnotherAttemptApplication() {}
+    SyntheticFeelingsApplication() {}
 
     const juce::String getApplicationName() override       { return ProjectInfo::projectName; }
     const juce::String getApplicationVersion() override    { return ProjectInfo::versionString; }
@@ -102,4 +102,4 @@ private:
 
 //==============================================================================
 // This macro generates the main() routine that launches the app.
-START_JUCE_APPLICATION (AnotherAttemptApplication)
+START_JUCE_APPLICATION (SyntheticFeelingsApplication)

@@ -5,13 +5,13 @@
 	<key>BuildMachineOSBuild</key>
 	<string>19H2</string>
 	<key>CFBundleDisplayName</key>
-	<string>Another Attempt</string>
+	<string>SynthesizedFeelings</string>
 	<key>CFBundleExecutable</key>
 	<string>Another Attempt</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.AnotherAttempt</string>
+	<string>com.yourcompany.SynthesizedFeelings</string>
 	<key>CFBundleName</key>
-	<string>Another Attempt</string>
+	<string>SynthesizedFeelings</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
