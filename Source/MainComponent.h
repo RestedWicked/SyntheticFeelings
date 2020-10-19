@@ -57,7 +57,7 @@ struct SineWaveVoice   : public juce::SynthesiserVoice
             {
                 while (--numSamples >= 0)
                 {
-                    auto currentSample = (float) (std::sin (currentAngle) * level * tailOff);
+                    auto currentSample = (float) (std::asin(std::cos(currentAngle)));
 
                     for (auto i = outputBuffer.getNumChannels(); --i >= 0;)
                         outputBuffer.addSample (i, startSample, currentSample);
@@ -80,7 +80,7 @@ struct SineWaveVoice   : public juce::SynthesiserVoice
             {
                 while (--numSamples >= 0) // [6]
                 {
-                    auto currentSample = (float) (std::sin (currentAngle) * level);
+                    auto currentSample = (float) (std::asin(std::cos(currentAngle)));
 
                     for (auto i = outputBuffer.getNumChannels(); --i >= 0;)
                         outputBuffer.addSample (i, startSample, currentSample);
@@ -94,6 +94,7 @@ struct SineWaveVoice   : public juce::SynthesiserVoice
 
 private:
     double currentAngle = 0.0, angleDelta = 0.0, level = 0.0, tailOff = 0.0;
+    
 };
 
 //==============================================================================
@@ -163,14 +164,14 @@ public:
         auto midiInputs = juce::MidiInput::getAvailableDevices();
         addAndMakeVisible (midiInputList);
         midiInputList.setTextWhenNoChoicesAvailable ("No MIDI Inputs Enabled");
-
+        
         juce::StringArray midiInputNames;
         for (auto input : midiInputs)
             midiInputNames.add (input.name);
 
         midiInputList.addItemList (midiInputNames, 1);
         midiInputList.onChange = [this] { setMidiInput (midiInputList.getSelectedItemIndex()); };
-
+        
         for (auto input : midiInputs)
         {
             if (deviceManager.isMidiInputDeviceEnabled (input.identifier))
@@ -182,11 +183,11 @@ public:
 
         if (midiInputList.getSelectedId() == 0)
             setMidiInput (0);
-
+        
         addAndMakeVisible (keyboardComponent);
         setAudioChannels (0, 2);
 
-        setSize (600, 190);
+        setSize (600, 300);
         startTimer (400);
     }
 
@@ -198,7 +199,7 @@ public:
     void resized() override
     {
         midiInputList    .setBounds (200, 10, getWidth() - 210, 20);
-        keyboardComponent.setBounds (10,  40, getWidth() - 20, getHeight() - 50);
+        keyboardComponent.setBounds (10,  80, getWidth() - 20, getHeight() - 100);
     }
 
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override
@@ -215,6 +216,7 @@ public:
     {
         synthAudioSource.releaseResources();
     }
+  
 
 private:
     void timerCallback() override
@@ -239,7 +241,7 @@ private:
 
         lastInputIndex = index;
     }
-
+    
     //==========================================================================
     juce::MidiKeyboardState keyboardState;
     SynthAudioSource synthAudioSource;
@@ -247,6 +249,7 @@ private:
 
     juce::ComboBox midiInputList;
     juce::Label midiInputListLabel;
+
     int lastInputIndex = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
