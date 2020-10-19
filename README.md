@@ -4,7 +4,7 @@
  
  MacOS Only
  
-Download the [Release] (https://github.com/RestedWickedDev/SyntheticFeelings/releases/tag/1.0)
+Download the [Release](https://github.com/RestedWickedDev/SyntheticFeelings/releases/tag/1.0)
 
 Plug in a MIDI Controller, or use your keyboard to play music
 
